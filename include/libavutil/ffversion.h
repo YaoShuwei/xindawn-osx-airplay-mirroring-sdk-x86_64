@@ -1,0 +1,4 @@
+#ifndef AVUTIL_FFVERSION_H
+#define AVUTIL_FFVERSION_H
+#define FFMPEG_VERSION "git-2015-12-25-4db7bab"
+#endif /* AVUTIL_FFVERSION_H */
