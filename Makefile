@@ -1,5 +1,5 @@
 DEFINES  ?= 
-INCLUDES ?= -I./ -I/Users/Shared/xbmc-depends/macosx10.11_x86_64-target/include -I./utils -I./include/vlc2x -I./include
+INCLUDES ?= -I./ -I./utils -I./include/vlc2x -I./include
 CXXFLAGS ?= -fvisibility=hidden -Wno-multichar -fexceptions  -fpermissive
 CFLAGS   ?= -fvisibility=hidden -Wno-multichar
 PREFIX   ?= /usr/local
@@ -23,7 +23,7 @@ STRIP= $(TOOLCHAIN_PATH)/strip
 
 
 
-EXTRALIBS =-framework CoreFoundation -framework VideoDecodeAcceleration -framework QuartzCore -framework CoreServices -L/Users/Shared/xbmc-depends/macosx10.11_x86_64-target/lib  -Wl,-framework,Cocoa /Users/Shared/xbmc-depends/macosx10.11_x86_64-target/lib/libSDLmain.a /Users/Shared/xbmc-depends/macosx10.11_x86_64-target/lib/libSDL.a -Wl,-framework,OpenGL -Wl,-framework,Cocoa -Wl,-framework,ApplicationServices -Wl,-framework,Carbon -Wl,-framework,AudioToolbox -Wl,-framework,AudioUnit -Wl,-framework,IOKit -lgmp -L/Users/Shared/xbmc-depends/macosx10.11_x86_64-target/lib -ldcadec -L/Users/Shared/xbmc-depends/macosx10.11_x86_64-target/lib -lgnutls  -liconv  -lhogweed -lgmp -lnettle -lm -lbz2 -lpthread
+EXTRALIBS =-framework CoreFoundation -framework VideoDecodeAcceleration -framework QuartzCore -framework CoreServices  -Wl,-framework,Cocoa  -Wl,-framework,OpenGL -Wl,-framework,Cocoa -Wl,-framework,ApplicationServices -Wl,-framework,Carbon -Wl,-framework,AudioToolbox -Wl,-framework,AudioUnit -Wl,-framework,IOKit -liconv -lbz2
 
 
 
@@ -81,10 +81,16 @@ airmirrorserver: $(OBJECTS)
         ./lib/libpostproc.a\
         ./lib/libcrypto.a \
         ./lib/libz.a \
-        ./libmediaserver.dylib\
-        /usr/local/Cellar/gettext/0.19.7/lib/libintl.a\
-        ./libvlc.dylib\
-        /Users/Shared/xbmc-depends/macosx10.11_x86_64-target/lib/libSDL.a\
+	./lib/libSDL.a \
+	./lib/libSDLmain.a \
+    ./lib/libgnutls.a \
+    ./lib/libnettle.a \
+	./lib/libgmp.a \
+    ./lib/libdcadec.a \
+    ./lib/libhogweed.a \
+	./libmediaserver.dylib\
+    ./lib/libintl.a\
+    ./libvlc.dylib\
 		-rdynamic
 #		$(STRIP) airmirrorserver
 
