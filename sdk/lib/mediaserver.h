@@ -47,7 +47,7 @@ struct airplay_callbacks_s
 };
 typedef struct airplay_callbacks_s airplay_callbacks_t;
 
-int  XinDawn_StartMediaServer(char *friendname, int width, int height, int framerate,  airplay_callbacks_t *cb);
+int  XinDawn_StartMediaServer(char *friendname, int width, int height,   airplay_callbacks_t *cb);
 void XinDawn_StopMediaServer();
 
 #ifdef __cplusplus
